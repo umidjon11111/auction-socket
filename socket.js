@@ -6,10 +6,11 @@ const chatModel = require("./models/chat.model");
 const userModel = require("./models/user.model");
 const SoldLot = require("./models/soldLot.model");
 const sendNotification = require("./utils/sendNotification");
+const job = require("./job");
 
 let lastNotificationTime = null;
 let onlineUsers = new Set();
-
+job.start();
 module.exports = (io) => {
   /* =========================================================
         🔔 ADMIN NOTIFICATION WATCHER
